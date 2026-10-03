@@ -1,7 +1,7 @@
 extends Camera2D
 
 # World area kept on screen, so the knight stays a similar size in any window.
-const VISIBLE_SIZE = Vector2(192, 108)
+const VISIBLE_SIZE = Vector2(230.4, 129.6)
 
 func _ready():
 	_fit_zoom()
