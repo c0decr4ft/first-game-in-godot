@@ -21,6 +21,10 @@ Music="*res://scenes/music.tscn"
 
 [display]
 
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 window/vsync/vsync_mode=0
 
 [input]
