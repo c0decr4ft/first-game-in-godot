@@ -1,0 +1,66 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends unzip ca-certificates
+          curl -fsSL -o /tmp/godot.zip "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip"
+          unzip -q /tmp/godot.zip -d /tmp/godot
+          bin="$(find /tmp/godot -type f -name 'Godot_v*' | head -n 1)"
+          sudo install -m 755 "$bin" /usr/local/bin/godot
+          godot --version
+
+      - name: Install web export templates
+        run: |
+          set -euo pipefail
+          version_dir="${HOME}/.local/share/godot/export_templates/4.7.2.stable"
+          mkdir -p "$version_dir"
+          curl -fsSL -o /tmp/templates.tpz "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz"
+          unzip -q /tmp/templates.tpz -d /tmp/godot-templates
+          cp -a /tmp/godot-templates/templates/. "$version_dir/"
+          ls "$version_dir" | grep 'web_nothreads'
+
+      - name: Export web build
+        run: |
+          set -euo pipefail
+          mkdir -p "$GITHUB_WORKSPACE/build/web"
+          godot --headless --path "$GITHUB_WORKSPACE/First Game" --import
+          godot --headless --path "$GITHUB_WORKSPACE/First Game" --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
+          test -f "$GITHUB_WORKSPACE/build/web/index.html"
+          test -f "$GITHUB_WORKSPACE/build/web/index.wasm"
+          ls -lh "$GITHUB_WORKSPACE/build/web"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
