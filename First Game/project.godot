@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
 window/vsync/vsync_mode=0
 
+[global_group]
+
+player=""
+
 [input]
 
 jump={
