@@ -277,6 +277,7 @@ position = Vector2(1908, -210)
 position = Vector2(74, 141)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1428954936]
+position = Vector2(5, 90)
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
 
 [node name="Coins" type="Node" parent="." unique_id=799439000]
@@ -471,6 +472,18 @@ collision_mask = 3
 
 [node name="destinationPoint" parent="portal2" index="2" unique_id=333149478 groups=["player"]]
 position = Vector2(-2101, 230)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=948085056]
+offset_left = 2043.0
+offset_top = -246.0
+offset_right = 2141.0
+offset_bottom = -216.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("2_nlliu")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [editable path="portal"]
 [editable path="portal2"]
