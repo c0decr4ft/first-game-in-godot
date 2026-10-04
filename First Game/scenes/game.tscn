@@ -486,7 +486,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Platform9" parent="." unique_id=1485072149 instance=ExtResource("3_cmfc3")]
-position = Vector2(1885, -382)
+position = Vector2(1929, -197)
 
 [node name="Platform10" parent="." unique_id=659081497 instance=ExtResource("3_cmfc3")]
 position = Vector2(1828, -416)
@@ -498,10 +498,10 @@ position = Vector2(1927, -429)
 position = Vector2(1857, -424)
 
 [node name="Label3" type="Label" parent="." unique_id=387948508]
-offset_left = 1840.0
-offset_top = -388.0
-offset_right = 1939.0
-offset_bottom = -377.0
+offset_left = 1851.0
+offset_top = -484.0
+offset_right = 1950.0
+offset_bottom = -473.0
 theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
