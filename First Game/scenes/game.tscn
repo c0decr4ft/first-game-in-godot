@@ -261,6 +261,18 @@ position_smoothing_enabled = true
 [node name="Coin" parent="Player" unique_id=1238529527 instance=ExtResource("4_28cek")]
 position = Vector2(-508, 6)
 
+[node name="Platform" parent="Player" unique_id=115623931 instance=ExtResource("3_cmfc3")]
+position = Vector2(1846, -134)
+
+[node name="Platform2" parent="Player" unique_id=153686232 instance=ExtResource("3_cmfc3")]
+position = Vector2(1803, -169)
+
+[node name="Platform3" parent="Player" unique_id=1828993797 instance=ExtResource("3_cmfc3")]
+position = Vector2(1845, -206)
+
+[node name="Platform4" parent="Player" unique_id=1347148298 instance=ExtResource("3_cmfc3")]
+position = Vector2(1908, -210)
+
 [node name="Killzone" parent="." unique_id=1105895653 instance=ExtResource("5_x8euu")]
 position = Vector2(74, 141)
 

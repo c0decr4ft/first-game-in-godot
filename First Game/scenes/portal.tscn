@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
-size = Vector2(11, 29)
+size = Vector2(19, 29)
 
 [node name="portal" type="Area2D" unique_id=1245017341]
 collision_mask = 2
@@ -67,8 +67,9 @@ autoplay = "portal"
 frame_progress = 0.2746218
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246137299]
-position = Vector2(-3.5, -0.5)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_vtaks")
+debug_color = Color(0.83825684, 0.26411694, 0.7073087, 0.41960785)
 
 [node name="destinationPoint" type="Marker2D" parent="." unique_id=333149478]
 position = Vector2(-24, 0)
