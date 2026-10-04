@@ -274,10 +274,10 @@ position = Vector2(1845, -206)
 position = Vector2(1908, -210)
 
 [node name="Killzone" parent="." unique_id=1105895653 instance=ExtResource("5_x8euu")]
-position = Vector2(74, 141)
+position = Vector2(85, 230)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1428954936]
-position = Vector2(5, 90)
+position = Vector2(1, 0)
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
 
 [node name="Coins" type="Node" parent="." unique_id=799439000]
